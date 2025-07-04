@@ -46,6 +46,20 @@ This project demonstrates how the C++ `final` keyword can help the compiler opti
 
 ---
 
+## Link-Time Optimization (LTO)
+LTO optimizations happen at link time, not compile time, so your .obj files (or .o files on Linux) may appear empty or incomplete because the actual code generation hasn't happened yet — it's deferred to the link step.
+LTO discards function symbols and debugging info by default in the final executable, making it hard to disassemble or inspect functions by name.
+
+This happens because:
+
+- Unused functions get inlined or removed entirely.
+
+- Symbols may be merged, renamed, or stripped.
+
+- You often end up with a flat blob of optimized machine code.
+
+---
+
 ## How to Use This
 
 1. Compile with the `FINAL` macro enabled or disabled to compare effects.

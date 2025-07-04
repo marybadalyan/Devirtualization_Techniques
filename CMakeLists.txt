@@ -35,7 +35,7 @@ if(MSVC)
     )
     add_custom_command(
         TARGET final_test_lto POST_BUILD
-        COMMAND cmd /c "dumpbin /DISASM \"$<TARGET_OBJECTS:final_test_lto>\" > \"${ANALYSIS_DIR}/assembly_final_lto.txt\""
+        COMMAND cmd /c "dumpbin /DISASM \"$<TARGET_FILE:final_test_lto>\" > \"${ANALYSIS_DIR}/assembly_final_lto.txt\""
         COMMENT "Dumping assembly for final_test_lto"
     )
 else()
